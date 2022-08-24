@@ -1,0 +1,75 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update User</h2>
+            <span class="text-light">Use the below form to Update an account</span>
+        </div>
+        <!-- add user form -->
+                        <!--form handling-->
+                                    <!--form handling-->
+
+            <form action="/api/users" method="POST" id="add_user">
+                <div>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="name" value="">
+                    </div>
+
+                    <div>
+                        <label for="PhoneNum">PhoneNum</label>
+                        <input type="number" name="PhoneNum" id="PhoneNum">
+                    </div>
+
+                    <div>
+                        <label for="ClassDate">Class Date</label>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-2" name="ClassDate" value="Mon">
+                            <label for="radio-2" class="radio-label">Mon</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Tue">
+                            <label for="radio-3" class="radio-label">Tue</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Wed">
+                            <label for="radio-3" class="radio-label">Wed</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Thur">
+                            <label for="radio-3" class="radio-label">Thur</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Fri">
+                            <label for="radio-3" class="radio-label">Fri</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Sat">
+                            <label for="radio-3" class="radio-label">Sat</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio-3" name="ClassDate" value="Sun">
+                            <label for="radio-3" class="radio-label">Sun</label> 
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            </div>
+            </main>
+
+
+<!--include footer-->
+<%-include('include/_footer')%>
+<!--/include footer-->

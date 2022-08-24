@@ -1,0 +1,60 @@
+            <!--form handling-->
+
+            <form action="/api/users" method="POST" id="add_user">
+                <div>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="name" value="">
+                    </div>
+
+                    <div>
+                        <label for="PhoneNum">PhoneNum</label>
+                        <input type="number" name="PhoneNum" id="PhoneNum" value="">
+                    </div>
+
+                    <div>
+                        <label for="ClassDate">Class Date</label>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Mon">
+                            <label for="radio" class="radio-label">Mon</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Tue">
+                            <label for="radio" class="radio-label">Tue</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Wed">
+                            <label for="radio" class="radio-label">Wed</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Thur">
+                            <label for="radio" class="radio-label">Thur</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Fri">
+                            <label for="radio" class="radio-label">Fri</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Sat">
+                            <label for="radio" class="radio-label">Sat</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="radio" name="ClassDate" value="Sun">
+                            <label for="radio" class="radio-label">Sun</label> 
+                        </div>
+                    </div>
+                    
+
+                    <label for="start">Start date:</label>
+                    <input type="date" id="start" name="startDate" value="">
+
+                    <div>
+                        <button type="submit" class="btn text-dark update" >Save</button>
+                    </div>
+                    
+                </div>
+
+            </form>
+
+            <!--/form handling-->            

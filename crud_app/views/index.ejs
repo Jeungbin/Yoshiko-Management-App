@@ -1,0 +1,56 @@
+
+
+<!--include header-->
+<%-include('include/_header')%>
+<!--/include header-->
+
+ <!-- Main Site -->
+ <main id="site-main">
+    <div class="container">
+
+
+        <!-- form handling -->
+           <!--Form-->
+    <form action="/" method="POST">
+        
+ <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>PhoneNumber</th>
+                    <th>
+                        <select name="class-date" id="class-date" onclick="filter()">
+                            <option value="class-date" selected="selected">Class Date</option>
+                            <option value="mon">Mon</option>
+                            <option value="tue">Tue</option>
+                            <option value="wed">Wed</option>
+                            <option value="thur">Thur</option>
+                            <option value="fri">Fri</option>
+                            <option value="sat">Sat</option>
+                            <option value="sun">Sun</option>
+                        </select>
+
+                    </th>
+                    <th>Starting Date</th>
+                    <th>Remaining Date</th>
+                    <th>
+                    <select name="teacher" id="teacher" onclick="filter()">
+                        <option value="teacher" selected>Teacher</option>
+                        <option value="han">Han</option>
+                        <option value="kim">Kim</option>
+                    </select>
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <%-include('include/_show')%>
+        </table> 
+    </form>
+    <!--/Form-->
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!--include footer-->
+<%-include('include/_footer')%>
+<!--/include footer-->

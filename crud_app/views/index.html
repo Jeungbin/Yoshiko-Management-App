@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoshiko's call Uer Management</title>
+    <link rel="stylesheet" href="/crud_app/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--Header-->
+    <main id="site-main">
+    <header>
+        <div>
+            <a class='header-name' href="/">All User</a>
+            <div>
+                <p class="header-user-count">55 users</p>
+            </div>
+        </div>
+
+    </header>
+    <!--/Header-->
+<!-- Main Site -->
+
+    <div class="container">
+        <div>
+            <div class="create-new-user-btn">
+                <a href="/add-user" class="border-shadow">
+                New User 
+                </a>
+            </div>
+            <div id="searchWrapper">
+                <button id="all-user-btn">Show all user</button>
+                <div class="search-by-name">
+                <label for="serchBar">User Name : </label>
+                <input
+                    type="search"
+                    name="searchBar"
+                    id="searchBar"
+                    placeholder="search for a user"
+                />
+                <button type="submit" id="search-button">Search</button>
+                <button type="button" id="reset-button">Reset</button>
+                </div>
+                <div>
+                    <label for="remaining-date-input">Remaining Date : </label>
+                    <input type="number" id="remaining-date-input">
+                    <button type="button" id="reset-button2">Reset</button>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <tbody  id="user-table-over-date">
+        </tbody>
+        <tbody  id="user-table-less-seven">
+        </tbody>
+        <tbody  id="user-table">
+        </tbody>
+    </div>
+</main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/index.js"></script>
+<script src="/js/main.js"></script>
+
+</html>
+        <!-- form handling -->
+           <!--Form-->
+    <!-- <form action="/" method="POST">
+        
+ <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>PhoneNumber</th>
+                    <th>
+                        <select name="class-date" id="class-date" onclick="filter()">
+                            <option value="class-date" selected="selected">Class Date</option>
+                            <option value="mon">Mon</option>
+                            <option value="tue">Tue</option>
+                            <option value="wed">Wed</option>
+                            <option value="thur">Thur</option>
+                            <option value="fri">Fri</option>
+                            <option value="sat">Sat</option>
+                            <option value="sun">Sun</option>
+                        </select>
+
+                    </th>
+                    <th>Starting Date</th>
+                    <th>Remaining Date</th>
+                    <th>
+                    <select name="teacher" id="teacher" onclick="filter()">
+                        <option value="teacher" selected>Teacher</option>
+                        <option value="han">Han</option>
+                        <option value="kim">Kim</option>
+                    </select>
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <%-include('include/_show')%>
+        </table> 
+    </form> -->
+    <!--/Form-->
+
+<!-- /Main Site -->
+
+<!--include footer-->
+<!--/include footer-->
