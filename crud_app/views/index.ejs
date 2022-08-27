@@ -4,52 +4,45 @@
 <%-include('include/_header')%>
 <!--/include header-->
 
- <!-- Main Site -->
- <main id="site-main">
-    <div class="container">
+<!-- Main Site -->
 
+<div class="container">
+    <div class="container-flex">
+        <button class="all-user-btn" id="all-user-btn"><p>Show all user</p></button>
+        <button class="create-new-user-btn">
+            <a href="/add-user">
+            Create New User
+            </a>
+        </button>                
+            <div class="search-by-name">
+            <label for="serchBar">User Name : </label>
+            <input
+                type="search"
+                name="searchBar"
+                id="searchBar"
+                placeholder="search for a user"
+            />
+            <button type="submit" id="search-button" class="search-button">Search</button>
+            <!-- <button type="button" id="reset-button">Reset</button> -->
+            </div>
+            <div class="search-by-date">
+                <label for="remaining-date-input">Remaining Date : </label>
+                <input type="number" id="remaining-date-input">
+                <!-- <button type="button" id="reset-button2">Reset</button> -->
+            </div>
 
-        <!-- form handling -->
-           <!--Form-->
-    <form action="/" method="POST">
         
- <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>PhoneNumber</th>
-                    <th>
-                        <select name="class-date" id="class-date" onclick="filter()">
-                            <option value="class-date" selected="selected">Class Date</option>
-                            <option value="mon">Mon</option>
-                            <option value="tue">Tue</option>
-                            <option value="wed">Wed</option>
-                            <option value="thur">Thur</option>
-                            <option value="fri">Fri</option>
-                            <option value="sat">Sat</option>
-                            <option value="sun">Sun</option>
-                        </select>
-
-                    </th>
-                    <th>Starting Date</th>
-                    <th>Remaining Date</th>
-                    <th>
-                    <select name="teacher" id="teacher" onclick="filter()">
-                        <option value="teacher" selected>Teacher</option>
-                        <option value="han">Han</option>
-                        <option value="kim">Kim</option>
-                    </select>
-                    </th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <%-include('include/_show')%>
-        </table> 
-    </form>
-    <!--/Form-->
     </div>
+    
+    <table>
+        <%-include('include/_tableHead')%>
+        <%-include('include/_show')%>
+        
+    </table> 
+    
+    
+</div>
 </main>
-<!-- /Main Site -->
 
 <!--include footer-->
 <%-include('include/_footer')%>
