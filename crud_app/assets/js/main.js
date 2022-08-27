@@ -11,33 +11,16 @@ const remainingDateInput = document.getElementById("remaining-date-input");
 const totalUser = document.getElementById("total-user");
 
 let parsedData;
+let orderData;
 let dDayResult;
-function remainingDateCal(dateString) {
-  const startDate = dateString;
-  const year = parseInt(startDate.slice(0, 4));
-  const month = parseInt(startDate.slice(5, 7));
-  const day = parseInt(startDate.slice(8, 10));
-  let date = new Date(year, month - 1, day);
-  date.setDate(date.getDate() + 28);
-  return date.toLocaleString("ko-KR", { timeZone: "UTC" });
-}
 
-function displayAllusers(data) {
-  try {
-    parsedData = JSON.parse(data);
-  } catch {
-    data.replaceAll(`'`, `"`);
-    data.replaceAll(`&#34;`, `"`);
-    parsedData = JSON.parse(data);
-  }
+function setTable(parsedData) {
   overDateTable.innerHTML = "";
-  userTable.innerHTML = "";
   userTableLessSeven.innerHTML = "";
-  totalUser.innerHTML = parsedData.length;
-  // console.log(parsedData.startDate.slice(0, 10));
+  userTable.innerHTML = "";
   parsedData.map((item) => {
     const lastDate = item.startDate ? remainingDateCal(item.startDate) : "";
-    console.log(lastDate);
+    // console.log(lastDate);
     const lastdateYear = parseInt(lastDate.slice(0, 4));
     const lastdateMonth = parseInt(lastDate.slice(5, 7));
     const lastdateDate = parseInt(lastDate.slice(9, 11));
@@ -46,12 +29,16 @@ function displayAllusers(data) {
     const dday = new Date(lastdateYear, lastdateMonth - 1, lastdateDate);
     const gap = dday.getTime() - today.getTime();
     var dDayResult = Math.ceil(gap / (1000 * 60 * 60 * 24));
-    console.log(dDayResult);
+    //console.log(dDayResult);
+    // const firstData = [];
+    // const middleData = [];
+    // const thirdData = [];
     if (dDayResult <= 0) {
+      //firstData.push
       return (overDateTable.innerHTML =
         overDateTable.innerHTML +
         `
-        <tr class='box' id=${item.remainingDate}>
+        <tr class='box' id=${item._id}>
         <td id="name">${item.name}</td>
         <td>${item.phoneNum}</td>
         <td>${item.classDate}</td>
@@ -77,7 +64,7 @@ function displayAllusers(data) {
       return (userTableLessSeven.innerHTML =
         userTableLessSeven.innerHTML +
         `
-        <tr class='box' id=${item.remainingDate}>
+        <tr class='box' id=${item._id}>
         <td id="name">${item.name}</td>
         <td>${item.phoneNum}</td>
         <td>${item.classDate}</td>
@@ -102,7 +89,7 @@ function displayAllusers(data) {
       return (userTable.innerHTML =
         userTable.innerHTML +
         `
-      <tr class='box' id=${item.remainingDate}>
+      <tr class='box' id=${item._id}>
       <td id="name">${item.name}</td>
       <td>${item.phoneNum}</td>
       <td>${item.classDate}</td>
@@ -128,6 +115,30 @@ function displayAllusers(data) {
   });
 }
 
+function remainingDateCal(dateString) {
+  const startDate = dateString;
+  const year = parseInt(startDate.slice(0, 4));
+  const month = parseInt(startDate.slice(5, 7));
+  const day = parseInt(startDate.slice(8, 10));
+  let date = new Date(year, month - 1, day);
+  date.setDate(date.getDate() + 28);
+  return date.toLocaleString("ko-KR", { timeZone: "UTC" });
+}
+
+function displayAllusers(data) {
+  try {
+    parsedData = JSON.parse(data);
+  } catch {
+    data.replaceAll(`'`, `"`);
+    data.replaceAll(`&#34;`, `"`);
+    parsedData = JSON.parse(data);
+  }
+  //console.log(parsedData);
+  totalUser.innerHTML = parsedData.length;
+  // console.log(parsedData.startDate.slice(0, 10));
+  setTable(parsedData);
+}
+
 displayAllusers(DBUsers);
 
 let tables = document.querySelectorAll(".box");
@@ -137,16 +148,18 @@ const resetBtn2 = document.getElementById("reset-button2");
 
 function liveSearchName(e) {
   let serch_query = searchBar.value;
+  const newDataArray = [];
   for (var i = 0; i < parsedData.length; i++) {
+    //console.log(tables[i]);
     if (serch_query === "") {
       displayAllusers(DBUsers);
     } else {
       if (
         parsedData[i].name.toLowerCase().includes(serch_query.toLowerCase())
       ) {
-        tables[i].classList.remove("is-hidden");
-      } else {
-        tables[i].classList.add("is-hidden");
+        newDataArray.push(parsedData[i]);
+        console.log(newDataArray);
+        setTable(newDataArray);
       }
     }
   }
@@ -155,11 +168,12 @@ function liveSearchName(e) {
 function liveSearchDate() {
   let serch_query = parseInt(remainingDateInput.value);
   console.log(serch_query);
+  const newDataArray = [];
 
   for (var i = 0; i < tables.length; i++) {
     console.log(dDayResult);
     if (serch_query === "") {
-      tables[i].classList.remove("is-hidden");
+      displayAllusers(DBUsers);
     } else {
       if (dDayResult <= serch_query) {
         tables[i].classList.remove("is-hidden");
@@ -192,12 +206,13 @@ function filter() {
   let serch_query_teacher =
     teacherOption.options[teacherOption.selectedIndex].text;
   //console.log(serch_query_classDate);
+  const newDataArray = [];
   if (
     serch_query_classDate === "Class Date" &&
     serch_query_teacher === "Teacher"
   ) {
     for (var i = 0; i < tables.length; i++) {
-      tables[i].classList.remove("is-hidden");
+      displayAllusers(DBUsers);
     }
   }
   if (
@@ -205,11 +220,11 @@ function filter() {
     serch_query_teacher === "Teacher"
   ) {
     for (var i = 0; i < parsedData.length; i++) {
-      console.log(parsedData[2].classDate);
       if (parsedData[i].classDate === serch_query_classDate) {
-        tables[i].classList.remove("is-hidden");
+        newDataArray.push(parsedData[i]);
+        setTable(newDataArray);
       } else {
-        tables[i].classList.add("is-hidden");
+        setTable(newDataArray);
       }
     }
   }
@@ -218,11 +233,12 @@ function filter() {
     serch_query_teacher !== "Teacher"
   ) {
     for (var i = 0; i < parsedData.length; i++) {
-      console.log(parsedData[0].teacher);
       if (parsedData[i].teacher === serch_query_teacher) {
-        tables[i].classList.remove("is-hidden");
+        newDataArray.push(parsedData[i]);
+        console.log(newDataArray);
+        setTable(newDataArray);
       } else {
-        tables[i].classList.add("is-hidden");
+        setTable(newDataArray);
       }
     }
   }
@@ -230,14 +246,17 @@ function filter() {
     serch_query_classDate !== "Class Date" &&
     serch_query_teacher !== "Teacher"
   ) {
+    console.log("here");
     for (var i = 0; i < parsedData.length; i++) {
       if (
         parsedData[i].teacher === serch_query_teacher &&
         parsedData[i].classDate === serch_query_classDate
       ) {
-        tables[i].classList.remove("is-hidden");
+        newDataArray.push(parsedData[i]);
+        console.log(newDataArray);
+        setTable(newDataArray);
       } else {
-        tables[i].classList.add("is-hidden");
+        setTable(newDataArray);
       }
     }
   }
@@ -245,11 +264,11 @@ function filter() {
 
 showAllUserBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  for (var i = 0; i < parsedData.length; i++) {
-    tables[i].classList.remove("is-hidden");
-  }
-  document.getElementById("searchBar").value = "";
+  displayAllusers(DBUsers);
   document.getElementById("remaining-date-input").value = "";
+  document.getElementById("searchBar").value = "";
+  document.getElementById("serch_query_classDate").value = "Class Date";
+  document.getElementById("searchBar").value = "";
 });
 
 let typingTimer;
