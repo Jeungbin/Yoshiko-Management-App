@@ -3,73 +3,109 @@
 <!-- /include header -->
 
   <!-- Main Site -->
-  <main id="site-main">
+  <main class="site-main-box">
+    <header>
+        <div class="header-info">
+            <a class='header-name' href="/"><span style="color: #F67373;"> Update </span>User</a>
+            <button class="all-user-btn all-user-btn-form"  id="all-user-btn" style="margin-left: 1rem;"><a class='header-name' href="/dashBoard"><p>Show all user</p></a></button>
+        </div>
+    </header>
+    <!--/Header-->
+
     <div class="container">
-        <div class="box-nav d-flex justify-between">
-           <div class="filter">
-               <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
-           </div>
-        </div>
-        <div class="form-title text-center">
-            <h2 class="text-dark">Update User</h2>
-            <span class="text-light">Use the below form to Update an account</span>
-        </div>
-        <!-- add user form -->
-                        <!--form handling-->
-                                    <!--form handling-->
 
-            <form action="/api/users" method="POST" id="add_user">
-                <div>
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="hidden" name="id" value="">
-                        <input type="text" name="name" value="">
-                    </div>
+        <!--add user form-->
+                    <!--form handling-->
 
-                    <div>
-                        <label for="PhoneNum">PhoneNum</label>
-                        <input type="number" name="PhoneNum" id="PhoneNum">
-                    </div>
+                    <form method="POST" id="update_user">
+                        <div class="new_user">
+                            <div>
+                                <label for="name">User Name</label>
+                                <input type="hidden" name="id" value="<%=user._id%>">
+                                <input type="text" name="name" value="<%=user.name%>" >
+                            </div>
+        
+                            <div>
+                                <label for="PhoneNum">Phone Num</label>
+                                <input type="number" name="phoneNum" id="PhoneNum" value="<%=user.phoneNum%>">
+                            </div>
+        
+                            <label for="start">Start date:</label>
+                            <input type="date" id="start" name="startDate" value="">
+        
+        
+                            <div>
+                                <label for="classDate">Class Date</label>
+                                <div class="radio inline">
+                                    <input type="radio" id="Mon" name="classDate" value="Mon"
+                                    <%= user.classDate == 'Mon' ? 'checked' : '' %>
+                                    >
+                                    <label for="Mon" class="radio-label">Mon</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Tue" name="classDate" value="Tue"
+                                    <%= user.classDate == 'Tue' ? 'checked' : '' %>>
+                                    <label for="Tue" class="radio-label">Tue</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Wed" name="classDate" value="Wed">
+                                    <label for="Wed" class="radio-label">Wed</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Thur" name="classDate" value="Thur">
+                                    <label for="Thur" class="radio-label">Thur</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Fri" name="classDate" value="Fri">
+                                    <label for="Fri" class="radio-label">Fri</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Sat" name="classDate" value="Sat">
+                                    <label for="Sat" class="radio-label">Sat</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Sun" name="classDate" value="Sun">
+                                    <label for="Sun" class="radio-label">Sun</label> 
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="teacher">Teacher</label>
+                                <div class="radio inline">
+                                    <input type="radio" id="Kim" name="teacher" value="Kim"
+                                    <%= user.teacher == 'Kim' ? 'checked' : '' %>
+                                    >
+                                    <label for="Kim" class="radio-label">Kim</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Han" name="teacher" value="Han"
+                                    <%= user.teacher == 'Han' ? 'checked' : '' %>>
+                                    <label for="Han" class="radio-label">Han</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input type="radio" id="Anes" name="teacher" value="Anes"
+                                    <%= user.teacher == 'Anes' ? 'checked' : '' %>>
+                                    <label for="Anes" class="radio-label">Anes</label> 
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn text-dark update" >Save</button>
+                            </div>
+                            
+                        </div>
+        
+                    </form>
+        
+                    <!--/form handling-->            
 
-                    <div>
-                        <label for="ClassDate">Class Date</label>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-2" name="ClassDate" value="Mon">
-                            <label for="radio-2" class="radio-label">Mon</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Tue">
-                            <label for="radio-3" class="radio-label">Tue</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Wed">
-                            <label for="radio-3" class="radio-label">Wed</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Thur">
-                            <label for="radio-3" class="radio-label">Thur</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Fri">
-                            <label for="radio-3" class="radio-label">Fri</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Sat">
-                            <label for="radio-3" class="radio-label">Sat</label> 
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="radio-3" name="ClassDate" value="Sun">
-                            <label for="radio-3" class="radio-label">Sun</label> 
-                        </div>
-                    </div>
-                </div>
+       
+    </div>
+</main>
 
-            </form>
-
-            </div>
-            </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/index.js"></script>
+</body>
 
 
-<!--include footer-->
-<%-include('include/_footer')%>
-<!--/include footer-->
+
+</html>

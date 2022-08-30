@@ -15,6 +15,8 @@ exports.create = (req, res) => {
     classDate: req.body.classDate,
     startDate: req.body.startDate,
     teacher: req.body.teacher,
+    classTimeZone: req.body.classTimeZone,
+    classTime: req.body.classTime,
   });
 
   // save user in the database

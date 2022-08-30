@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/crud_app/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -18,139 +22,41 @@
             Yoshiko<br>Management<br>Aplication
         </h1>
         <div class="nav-btns">
-        <button>User Dashdoard</button>
-        <button>My Schedule</button>
-        <button>Log Out</button>
+        <button ><a href="/"class='nav-button' > My Schedule</a></button>
+        <button><a href="/dashBoard" class='nav-button'>User Dashdoard</a></button>
+        <button class='nav-button'>Log Out</button>
         </div>
     </nav>
+
+<!-- Main Site -->
     <!--Header-->
     <main class="site-main-box">
-    <header>
-        <div class="header-info">
-            <a class='header-name' href="/">All User</a>
-            <div>
-                <p class="header-user-count">55 users</p>
+        <header>
+            <div class="header-info">
+                <a class='header-name' href="/"><span style="color: #F67373;"> Today's </span>Class</a>
+                <div>
+                    <p  class="header-user-count"><span id="total-user"></span> Class</p>
+                </div>
+            </div>
+        </header>
+        <!--/Header-->
+        <div class="container">
+            <div class="container-flex">
+                <div id="demo">
+                    <!-- timeline -->
+
+                </div>
             </div>
         </div>
-    </header>
-    <!--/Header-->
-<!-- Main Site -->
 
-    <div class="container">
-        <div class="container-flex">
-            <button class="all-user-btn" id="all-user-btn"><p>Show all user</p></button>
-            <button class="create-new-user-btn">
-                <a href="/add-user">
-                New User 
-                </a>
-            </button>                
-                <div class="search-by-name">
-                <label for="serchBar">User Name : </label>
-                <input
-                    type="search"
-                    name="searchBar"
-                    id="searchBar"
-                    placeholder="search for a user"
-                />
-                <button type="submit" id="search-button" class="search-button">Search</button>
-                <!-- <button type="button" id="reset-button">Reset</button> -->
-                </div>
-                <div class="search-by-date">
-                    <label for="remaining-date-input">Remaining Date : </label>
-                    <input type="number" id="remaining-date-input">
-                    <!-- <button type="button" id="reset-button2">Reset</button> -->
-                </div>
 
-            
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th class="th-left">Name</th>
-                    <th>PhoneNumber</th>
-                    <th>
-                        <select name="class-date" id="class-date" onclick="filter()">
-                            <option value="class-date" selected="selected">Class Date</option>
-                            <option value="mon">Mon</option>
-                            <option value="tue">Tue</option>
-                            <option value="wed">Wed</option>
-                            <option value="thur">Thur</option>
-                            <option value="fri">Fri</option>
-                            <option value="sat">Sat</option>
-                            <option value="sun">Sun</option>
-                        </select>
-
-                    </th>
-                    <th>Starting Date</th>
-                    <th>Remaining Date</th>
-                    <th>
-                    <select name="teacher" id="teacher" onclick="filter()">
-                        <option value="teacher" selected>Teacher</option>
-                        <option value="han">Han</option>
-                        <option value="kim">Kim</option>
-                    </select>
-                    </th>
-                    <th class="th-right">Action</th>
-                </tr>
-            </thead>
-            <tbody  id="user-table-over-date">
-            </tbody>
-            <tbody  id="user-table-less-seven">
-            </tbody>
-            <tbody  id="user-table">
-            </tbody>
-        </table> 
-        
-        
-    </div>
 </main>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/js/index.js"></script>
-<script src="/js/main.js"></script>
-
-</html>
-        <!-- form handling -->
-           <!--Form-->
-    <!-- <form action="/" method="POST">
-        
- <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>PhoneNumber</th>
-                    <th>
-                        <select name="class-date" id="class-date" onclick="filter()">
-                            <option value="class-date" selected="selected">Class Date</option>
-                            <option value="mon">Mon</option>
-                            <option value="tue">Tue</option>
-                            <option value="wed">Wed</option>
-                            <option value="thur">Thur</option>
-                            <option value="fri">Fri</option>
-                            <option value="sat">Sat</option>
-                            <option value="sun">Sun</option>
-                        </select>
-
-                    </th>
-                    <th>Starting Date</th>
-                    <th>Remaining Date</th>
-                    <th>
-                    <select name="teacher" id="teacher" onclick="filter()">
-                        <option value="teacher" selected>Teacher</option>
-                        <option value="han">Han</option>
-                        <option value="kim">Kim</option>
-                    </select>
-                    </th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <%-include('include/_show')%>
-        </table> 
-    </form> -->
-    <!--/Form-->
-
-<!-- /Main Site -->
 
 <!--include footer-->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/scedule.js"></script>
+
+
+</html>
 <!--/include footer-->

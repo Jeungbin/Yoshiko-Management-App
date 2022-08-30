@@ -5,6 +5,7 @@ const userTableLessSeven = document.getElementById("user-table-less-seven");
 const overDateTable = document.getElementById("user-table-over-date");
 const showAllUserBtn = document.getElementById("all-user-btn");
 const serchUser = document.getElementById("serchUser");
+const reamainingDaysOption = document.getElementById("reamainingDaysOption");
 let classDateOption = document.getElementById("class-date");
 let teacherOption = document.getElementById("teacher");
 const remainingDateInput = document.getElementById("remaining-date-input");
@@ -33,6 +34,7 @@ function setTable(parsedData) {
     // const firstData = [];
     // const middleData = [];
     // const thirdData = [];
+    console.log(item.classDate);
     if (dDayResult <= 0) {
       //firstData.push
       return (overDateTable.innerHTML =
@@ -50,10 +52,14 @@ function setTable(parsedData) {
         <td style="background-color:red; border: 1px solid;">${dDayResult}</td>
         <td>${item.teacher}</td>
         <td>
-            <a href="#" class="btn border-shadow update">
+            <a href="/update-user?id=${
+              item._id
+            }" class="btn border-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
             </a>
-            <a class="btn border-shadow delete">
+            <a id='deleteBtn' class="btn border-shadow delete" data-id=${
+              item._id
+            }>
                 <span class="text-gradient"><i class="fas fa-times"></i></span>
             </a>
         </td>
@@ -76,10 +82,14 @@ function setTable(parsedData) {
         <td style="background-color:grey; border: 1px solid;">${dDayResult}</td>
         <td>${item.teacher}</td>
         <td>
-            <a href="#" class="btn border-shadow update">
+            <a href="/update-user?id=${
+              item._id
+            }" class="btn border-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
             </a>
-            <a class="btn border-shadow delete">
+            <a id='deleteBtn' class="btn border-shadow delete" data-id=${
+              item._id
+            }>
                 <span class="text-gradient"><i class="fas fa-times"></i></span>
             </a>
         </td>
@@ -101,10 +111,14 @@ function setTable(parsedData) {
       <td id='remainingDate' + ${item.id}>${dDayResult}</td>
       <td>${item.teacher}</td>
       <td>
-          <a href="#" class="btn border-shadow update">
+          <a href="/update-user?id=${
+            item._id
+          }" class="btn border-shadow update">
               <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
           </a>
-          <a class="btn border-shadow delete">
+          <a id='deleteBtn' class="btn border-shadow delete" data-id=${
+            item._id
+          }>
               <span class="text-gradient"><i class="fas fa-times"></i></span>
           </a>
       </td>
@@ -165,22 +179,34 @@ function liveSearchName(e) {
   }
 }
 
-function liveSearchDate() {
-  let serch_query = parseInt(remainingDateInput.value);
-  console.log(serch_query);
-  const newDataArray = [];
+// const userTable = document.getElementById("user-table");
+// const userTableLessSeven = document.getElementById("user-table-less-seven");
+// const overDateTable = document.getElementById("user-table-over-date");
 
-  for (var i = 0; i < tables.length; i++) {
-    console.log(dDayResult);
-    if (serch_query === "") {
-      displayAllusers(DBUsers);
-    } else {
-      if (dDayResult <= serch_query) {
-        tables[i].classList.remove("is-hidden");
-      } else {
-        tables[i].classList.add("is-hidden");
-      }
-    }
+function liveSearchDate() {
+  let serch_query =
+    reamainingDaysOption.options[reamainingDaysOption.selectedIndex].text;
+  console.log(serch_query);
+  if (serch_query === "Select Remaining Date") {
+    displayAllusers(DBUsers);
+    overDateTable.classList.remove("is-hidden");
+    userTableLessSeven.classList.remove("is-hidden");
+    userTable.classList.remove("is-hidden");
+  }
+  if (serch_query === "Over Date") {
+    overDateTable.classList.remove("is-hidden");
+    userTableLessSeven.classList.add("is-hidden");
+    userTable.classList.add("is-hidden");
+  }
+  if (serch_query === "Less Than 7 Days") {
+    userTableLessSeven.classList.remove("is-hidden");
+    userTable.classList.add("is-hidden");
+    overDateTable.classList.add("is-hidden");
+  }
+  if (serch_query === "More Than 7 Days") {
+    userTable.classList.remove("is-hidden");
+    userTableLessSeven.classList.add("is-hidden");
+    overDateTable.classList.add("is-hidden");
   }
 }
 
@@ -220,7 +246,7 @@ function filter() {
     serch_query_teacher === "Teacher"
   ) {
     for (var i = 0; i < parsedData.length; i++) {
-      if (parsedData[i].classDate === serch_query_classDate) {
+      if (parsedData[i].classDate.includes(serch_query_classDate)) {
         newDataArray.push(parsedData[i]);
         setTable(newDataArray);
       } else {
@@ -250,7 +276,7 @@ function filter() {
     for (var i = 0; i < parsedData.length; i++) {
       if (
         parsedData[i].teacher === serch_query_teacher &&
-        parsedData[i].classDate === serch_query_classDate
+        parsedData[i].classDate.includes(serch_query_classDate)
       ) {
         newDataArray.push(parsedData[i]);
         console.log(newDataArray);
@@ -265,10 +291,10 @@ function filter() {
 showAllUserBtn.addEventListener("click", (e) => {
   e.preventDefault();
   displayAllusers(DBUsers);
-  document.getElementById("remaining-date-input").value = "";
   document.getElementById("searchBar").value = "";
-  document.getElementById("serch_query_classDate").value = "Class Date";
-  document.getElementById("searchBar").value = "";
+  userTable.classList.remove("is-hidden");
+  userTableLessSeven.classList.remove("is-hidden");
+  overDateTable.classList.remove("is-hidden");
 });
 
 let typingTimer;
@@ -280,7 +306,7 @@ searchBtn.addEventListener("click", (e) => {
   typingTimer = setTimeout(liveSearchName, typeInterval);
 });
 
-remainingDateInput.addEventListener("change", () => {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(liveSearchDate, typeInterval);
-});
+// remainingDateInput.addEventListener("click", () => {
+//   clearTimeout(typingTimer);
+//   typingTimer = setTimeout(liveSearchDate, typeInterval);
+// });

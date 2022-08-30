@@ -9,6 +9,7 @@ const controller = require("../controller/controller");
  *  @method GET /
  */
 route.get("/", services.homeRoutes);
+route.get("/dashBoard", services.dashBoard);
 
 /**
  *  @description add users

@@ -20,14 +20,13 @@
 
 a {
     text-decoration: none;
-    font-family: 'PT Sans', sans-serif;
+  
 }
 
 
 
 body{
     display: flex;
-    text-align: center;
     font-family: 'Roboto', sans-serif;;
 }
 th{
@@ -118,9 +117,20 @@ line-height: 139.69%;
     background-color: transparent;
     text-align: left;
     border: none;
+    font-family: 'Roboto', sans-serif;
 }
 .nav-btns button:hover{
     color: var(--light-blue);
+}
+.nav-button{
+    font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+line-height: 139.69%;
+    color: #FFFFFF;
+    background-color: transparent;
+    text-align: left;
+    border: none;
 }
 /* dashboard nav */
 .container{
@@ -177,16 +187,26 @@ color: #FFFFFF;
 }
 
 .container label{
-    font-style: normal;
+    font-family: 'Roboto';
+font-style: normal;
 font-weight: 400;
-font-size: 18px;
+font-size: 13px;
 line-height: 139.69%;
+/* or 18px */
+
+
+color: #4E4E4E;
 }
 .container input{
-    width: 122px;
+
 height: 31px;
     margin-left: 0.5rem;
     border-radius: 5px;
+}
+.container input ,
+.class-date-input{
+
+    margin-right: 0.5rem;
 }
 .search-by-name{
     display: flex;
@@ -243,6 +263,7 @@ tbody{
     border: 0.3px solid #C9C9C9;
 }
 td{
+    text-align: center;
     padding: 1rem;
 }
 
@@ -257,4 +278,11 @@ font-size: 15px;
 }
 .table > thead > tr > th {
     border: 0 !important
+}
+
+/* form */
+.class-date-radio,
+.inline{
+    display: flex;
+    align-items: center;
 }

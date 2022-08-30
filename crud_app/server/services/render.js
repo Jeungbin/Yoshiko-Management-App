@@ -15,6 +15,18 @@ exports.homeRoutes = (req, res) => {
     });
 };
 
+exports.dashBoard = (req, res) => {
+  axios
+    .get("http://localhost:3000/api/users")
+    .then((response) => {
+      res.render("dashBoard", { users: response.data });
+      // first is index.js / second data has all the records of mongoDB
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
 exports.add_user = (req, res) => {
   res.render("add_user");
 };

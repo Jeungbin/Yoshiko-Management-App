@@ -3,53 +3,76 @@
             <form action="/api/users" method="POST" id="add_user">
                 <div>
                     <div>
-                        <label for="name">Name</label>
+                        <label for="name">User Name</label>
                         <input type="hidden" name="id" value="">
                         <input type="text" name="name" value="">
+
                     </div>
 
                     <div>
-                        <label for="PhoneNum">PhoneNum</label>
+                        <label for="PhoneNum">Phone Num</label>
                         <input type="number" name="phoneNum" id="PhoneNum" value="">
                     </div>
 
+                    <label for="startDate">Start date:</label>
+                    <input type="date" id="startDate" name="startDate" value="">
+
+
                     <div>
                         <label for="classDate">Class Date</label>
+                        <div class="class-date-radio">
                         <div class="radio inline">
-                            <input type="radio" id="Mon" name="classDate" value="Mon">
+                            <input class="class-date-input" type="checkbox" id="Mon" name="classDate" value="Mon">
                             <label for="Mon" class="radio-label">Mon</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Tue" name="classDate" value="Tue">
+                            <input class="class-date-input" type="checkbox" id="Tue" name="classDate" value="Tue">
                             <label for="Tue" class="radio-label">Tue</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Wed" name="classDate" value="Wed">
+                            <input class="class-date-input" type="checkbox" id="Wed" name="classDate" value="Wed">
                             <label for="Wed" class="radio-label">Wed</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Thur" name="classDate" value="Thur">
+                            <input class="class-date-input" type="checkbox" id="Thur" name="classDate" value="Thur">
                             <label for="Thur" class="radio-label">Thur</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Fri" name="classDate" value="Fri">
+                            <input class="class-date-input" type="checkbox" id="Fri" name="classDate" value="Fri">
                             <label for="Fri" class="radio-label">Fri</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Sat" name="classDate" value="Sat">
+                            <input class="class-date-input" type="checkbox" id="Sat" name="classDate" value="Sat">
                             <label for="Sat" class="radio-label">Sat</label> 
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="Sun" name="classDate" value="Sun">
+                            <input class="class-date-input" type="checkbox" id="Sun" name="classDate" value="Sun">
                             <label for="Sun" class="radio-label">Sun</label> 
                         </div>
                     </div>
-                    
+                    </div>
 
-                    <label for="start">Start date:</label>
-                    <input type="date" id="start" name="startDate" value="">
+                    <div class="class-date-radio">
+                        <label for="classTimeZone">Class Time Zone</label>
+                        <div class="radio inline">
+                            <input type="radio" id="Am" name="classTimeZone" value="Am">
+                            <label for="Am" class="radio-label">Am</label> 
+                        </div>
+                        <div class="radio inline">
+                            <input type="radio" id="Pm" name="classTimeZone" value="Pm">
+                            <label for="Pm" class="radio-label">Pm</label> 
+                        </div>
+                    </div>
 
                     <div>
+                        <label for="classTime">Class Time</label>
+                        <input type="number" id="classTime" name="classTime" value=""> <span>:</span> <input id="classTime" type="number" name="classTime" value="">
+                        <span>To</span>
+                        <input type="number" id="classTime" name="classTime" value=""> <span>:</span> <input id="classTime" type="number" name="classTime" value="">
+
+                    </div>
+                    
+                    <div class="class-date-radio">
                         <label for="teacher">Teacher</label>
                         <div class="radio inline">
                             <input type="radio" id="Kim" name="teacher" value="Kim">
