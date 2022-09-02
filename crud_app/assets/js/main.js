@@ -34,7 +34,7 @@ function setTable(parsedData) {
     // const firstData = [];
     // const middleData = [];
     // const thirdData = [];
-    console.log(item.classDate);
+    //console.log(item.classDate);
     if (dDayResult <= 0) {
       //firstData.push
       return (overDateTable.innerHTML =
@@ -49,18 +49,18 @@ function setTable(parsedData) {
             ? `${item.startDate.slice(5, 7)} / ${item.startDate.slice(8, 10)}`
             : ""
         }</td>
-        <td style="background-color:red; border: 1px solid;">${dDayResult}</td>
+        <td style="background-color:#ef233c; border: 1px solid #d3d3d3;">${dDayResult}</td>
         <td>${item.teacher}</td>
         <td>
             <a href="/update-user?id=${
               item._id
             }" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                <span class="text-gradient"><i class="fa-solid fa-pen-to-square"></i></span>
             </a>
             <a id='deleteBtn' class="btn border-shadow delete" data-id=${
               item._id
             }>
-                <span class="text-gradient"><i class="fas fa-times"></i></span>
+                <span class="text-gradient"><i class="fa-solid fa-circle-minus"></i></span>
             </a>
         </td>
         </tr>
@@ -79,18 +79,18 @@ function setTable(parsedData) {
             ? `${item.startDate.slice(5, 7)} / ${item.startDate.slice(8, 10)}`
             : ""
         }</td>
-        <td style="background-color:grey; border: 1px solid;">${dDayResult}</td>
+        <td style="background-color:#ffd97d;  border: 1px solid #d3d3d3;">${dDayResult}</td>
         <td>${item.teacher}</td>
         <td>
             <a href="/update-user?id=${
               item._id
             }" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                <span class="text-gradient"><i class="fa-solid fa-pen-to-square"></i></span>
             </a>
             <a id='deleteBtn' class="btn border-shadow delete" data-id=${
               item._id
             }>
-                <span class="text-gradient"><i class="fas fa-times"></i></span>
+                <span class="text-gradient"><i class="fa-solid fa-circle-minus"></i></span>
             </a>
         </td>
         </tr>
@@ -114,12 +114,12 @@ function setTable(parsedData) {
           <a href="/update-user?id=${
             item._id
           }" class="btn border-shadow update">
-              <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+              <span class="text-gradient"><i class="fa-solid fa-pen-to-square"></i></span>
           </a>
           <a id='deleteBtn' class="btn border-shadow delete" data-id=${
             item._id
           }>
-              <span class="text-gradient"><i class="fas fa-times"></i></span>
+              <span class="text-gradient"><i class="fa-solid fa-circle-minus"></i></span>
           </a>
       </td>
       </tr>

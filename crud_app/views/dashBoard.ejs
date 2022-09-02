@@ -1,0 +1,64 @@
+
+<!--include header-->
+<%-include('include/_header')%>
+<!--/include header-->
+
+<!-- Main Site -->
+    <!--Header-->
+    <main class="site-main-box">
+        <header>
+            <div class="header-info">
+                <a class='header-name' href="/">All User</a>
+                <div>
+                    <p  class="header-user-count"><span id="total-user"></span> users</p>
+                </div>
+            </div>
+        </header>
+        <!--/Header-->
+
+<div class="container">
+    <div class="container-flex">
+        <button class="all-user-btn" id="all-user-btn"><p>Show all user</p></button>
+        <button class="create-new-user-btn">
+            <a href="/add-user">
+            Create New User
+            </a>
+        </button>                
+            <div class="search-by-name">
+            <label for="serchBar">User Name : </label>
+            <input
+                type="search"
+                name="searchBar"
+                id="searchBar"
+                placeholder="search for a user"
+            />
+            <button type="submit" id="search-button" class="search-button">Search</button>
+            <!-- <button type="button" id="reset-button">Reset</button> -->
+            </div>
+            <div class="search-by-date">
+                <label for="remaining-date-input">Remaining Date : </label>
+                <select name="reamainingDaysOption" id="reamainingDaysOption" onclick="liveSearchDate()">
+                    <option value="reamainingDaysOption" selected>Select Remaining Date</option>
+                    <option value="overDate">Over Date</option>
+                    <option value="less7Days">Less Than 7 Days</option>
+                    <option value="more7Days">More Than 7 Days</option>
+                </select>
+                <!-- <button type="button" id="reset-button2">Reset</button> -->
+            </div>
+
+        
+    </div>
+    
+    <table>
+        <%-include('include/_tableHead')%>
+        <%-include('include/_show')%>
+        
+    </table> 
+    
+    
+</div>
+</main>
+
+<!--include footer-->
+<%-include('include/_footer')%>
+<!--/include footer-->

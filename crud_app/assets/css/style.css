@@ -39,6 +39,7 @@ form{
 button{
     cursor: pointer;
     transition: all 0.3s linear;
+    
 }
 
 .is-hidden { display: none; }
@@ -201,7 +202,7 @@ color: #4E4E4E;
 
 height: 31px;
     margin-left: 0.5rem;
-    border-radius: 5px;
+
 }
 .container input ,
 .class-date-input{
@@ -279,10 +280,76 @@ font-size: 15px;
 .table > thead > tr > th {
     border: 0 !important
 }
+.fa-circle-minus{
+    cursor: pointer;
+    color: #ef233c;
+}
+.fa-pen-to-square{
+    color: #60d394;
+}
+select{
+    text-align: center;
+}
 
 /* form */
 .class-date-radio,
 .inline{
     display: flex;
     align-items: center;
+}
+
+.createUserFormDiv{
+    margin-bottom: 0.5rem;
+}
+
+.inputLabel{
+    font-weight: 500;
+}
+input{
+
+    border: none;
+    background: transparent;
+    line-height: 2em;
+    border-bottom: 3px solid #12664f;
+    border-radius: 0;
+}
+.btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.form-btn{
+    font-weight: 600;
+    margin-top: 1rem;
+    padding: 0.3rem 0.5rem;
+    background-color: #12664f;
+    border-radius: 1rem;
+    color: rgb(204, 252, 10);
+    font-size: 1rem;
+}
+.form-btn:hover{
+    
+    color: #12664f;
+    background-color:rgb(204, 252, 10); ;
+}
+
+
+
+/* schdule */
+.userSchedule{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 500;
+    border-radius: 5px;
+   
+}
+
+/* .userScheduleName{
+    
+} */
+
+.teacherOption{
+    margin-bottom: 10px;
+    width: 30vw;
+    font-size: large;
 }

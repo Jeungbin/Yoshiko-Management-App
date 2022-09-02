@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoshiko's call Uer Management</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500&family=Maven+Pro:wght@500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/list-check-solid.svg">
+    <script src="https://kit.fontawesome.com/e6fb9338c5.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+        
+        <div class="center">
+            <div class="main-container">
+               <div>
+                <h1>
+                    Yoshiko<br/>
+                    Management<br/>
+                    Application<br/>
+                </h1>
+                <p>
+                    Only authorized personnel have access </p>
+            </div>
+                <form action="">
+                    
+                    <input placeholder="Email" type="email" id="userId" name='email' value="">
+                    <br />
+                    
+                    <input placeholder="Password" type="password" id='userPassword' name='password'value="">
+                    <br />
+                    <button type='submit' id='btnLogin'>Login</button>
+                </form>
+
+        </div>
+            
+
+    </div>
+    <script src="/js/login.js"></script>
+</body>
+</html>

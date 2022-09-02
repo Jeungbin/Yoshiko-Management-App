@@ -13,85 +13,101 @@
     <!--/Header-->
 
     <div class="container">
-
+        <div class="container-flex">
         <!--add user form-->
                     <!--form handling-->
 
                     <form method="POST" id="update_user">
                         <div class="new_user">
-                            <div>
-                                <label for="name">User Name</label>
+                            <div class="createUserFormDiv">
+                                <label style="font-weight: 600; font-size: 15px;" for="name">User Name</label>
                                 <input type="hidden" name="id" value="<%=user._id%>">
                                 <input type="text" name="name" value="<%=user.name%>" >
                             </div>
         
-                            <div>
-                                <label for="PhoneNum">Phone Num</label>
+                            <div class="createUserFormDiv">
+                                <label style="font-weight: 600; font-size: 15px;" for="PhoneNum">Phone Num</label>
                                 <input type="number" name="phoneNum" id="PhoneNum" value="<%=user.phoneNum%>">
                             </div>
         
-                            <label for="start">Start date:</label>
-                            <input type="date" id="start" name="startDate" value="">
-        
-        
-                            <div>
-                                <label for="classDate">Class Date</label>
+                            <div class="createUserFormDiv">
+                            <label style="font-weight: 600; font-size: 15px;" for="start">Start date:</label>
+                            <input type="date" id="start" name="startDate" value="<%=user.startDate%>">
+                            </div>
+                            
+                            <div class="createUserFormDiv">
+                                <label style="font-weight: 600; font-size: 15px;" for="classDate">Class Date</label>
+                                <div class="class-date-radio">
                                 <div class="radio inline">
-                                    <input type="radio" id="Mon" name="classDate" value="Mon"
-                                    <%= user.classDate == 'Mon' ? 'checked' : '' %>
-                                    >
+                                    <input  class="class-date-input" type="checkbox" id="Mon" name="classDate" value="Mon" <%= user.classDate.includes('Mon') ? 'checked' : '' %> >
                                     <label for="Mon" class="radio-label">Mon</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Tue" name="classDate" value="Tue"
-                                    <%= user.classDate == 'Tue' ? 'checked' : '' %>>
+                                    <input class="class-date-input" type="checkbox" id="Tue" name="classDate" value="Tue" <%= user.classDate.includes('Tue') ? 'checked' : '' %>>
                                     <label for="Tue" class="radio-label">Tue</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Wed" name="classDate" value="Wed">
+                                    <input class="class-date-input" type="checkbox" id="Wed" name="classDate" value="Wed" <%= user.classDate.includes('Wed') ? 'checked' : '' %> >
                                     <label for="Wed" class="radio-label">Wed</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Thur" name="classDate" value="Thur">
+                                    <input class="class-date-input" type="checkbox" id="Thur" name="classDate" value="Thur" <%= user.classDate.includes('Thur') ? 'checked' : '' %>>
                                     <label for="Thur" class="radio-label">Thur</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Fri" name="classDate" value="Fri">
+                                    <input class="class-date-input" type="checkbox" id="Fri" name="classDate" value="Fri" <%= user.classDate.includes('Fri') ? 'checked' : '' %>>
                                     <label for="Fri" class="radio-label">Fri</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Sat" name="classDate" value="Sat">
+                                    <input class="class-date-input" type="checkbox" id="Sat" name="classDate" value="Sat" <%= user.classDate.includes('Sat') ? 'checked' : '' %>>
                                     <label for="Sat" class="radio-label">Sat</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Sun" name="classDate" value="Sun">
+                                    <input class="class-date-input" type="checkbox" id="Sun" name="classDate" value="Sun" <%= user.classDate.includes('Sun') ? 'checked' : '' %>>
                                     <label for="Sun" class="radio-label">Sun</label> 
                                 </div>
                             </div>
+                            </div>
+
+                            <div class="class-date-radio">
+                                <label style="font-weight: 600; font-size: 15px;" for="classTimeZone">Class Time Zone</label>
+                                <div class="radio inline">
+                                    <input   type="radio" id="Am" name="classTimeZone" value="Am" <%= user.classTimeZone == 'Am' ? 'checked' : '' %>>
+                                    <label for="Am" class="radio-label">Am</label> 
+                                </div>
+                                <div class="radio inline">
+                                    <input  type="radio" id="Pm" name="classTimeZone" value="Pm" <%= user.classTimeZone == 'Pm' ? 'checked' : '' %>>
+                                    <label for="Pm" class="radio-label">Pm</label> 
+                                </div>
+                            </div>
+
+                            <div class="createUserFormDiv">
+                                <label style="font-weight: 600; font-size: 15px;" for="classTime">Class Time</label>
+                                <input type="number" id="classTime" name="classTime" value="<%=user.classTime[0]%>"> <span>:</span> <input id="classTime" type="number" name="classTime" value="<%=user.classTime[1]%>">
+                                <span>To</span>
+                                <input type="number" id="classTime" name="classTime" value="<%=user.classTime[2]%>"> <span>:</span> <input id="classTime" type="number" name="classTime" value="<%=user.classTime[3]%>">
+    
+                            </div>
                             
-                            <div>
+                            <div class="createUserFormDiv class-date-radio" style="font-weight: 600; font-size: 15px;" >
                                 <label for="teacher">Teacher</label>
                                 <div class="radio inline">
-                                    <input type="radio" id="Kim" name="teacher" value="Kim"
-                                    <%= user.teacher == 'Kim' ? 'checked' : '' %>
-                                    >
+                                    <input  type="radio" id="Kim" name="teacher" value="Kim" <%= user.teacher == 'Kim' ? 'checked' : '' %>>
                                     <label for="Kim" class="radio-label">Kim</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Han" name="teacher" value="Han"
-                                    <%= user.teacher == 'Han' ? 'checked' : '' %>>
+                                    <input  type="radio" id="Han" name="teacher" value="Han" <%= user.teacher == 'Han' ? 'checked' : '' %>>
                                     <label for="Han" class="radio-label">Han</label> 
                                 </div>
                                 <div class="radio inline">
-                                    <input type="radio" id="Anes" name="teacher" value="Anes"
-                                    <%= user.teacher == 'Anes' ? 'checked' : '' %>>
+                                    <input  type="radio" id="Anes" name="teacher" value="Anes" <%= user.teacher == 'Anes' ? 'checked' : '' %>>
                                     <label for="Anes" class="radio-label">Anes</label> 
                                 </div>
                             </div>
-                            <div>
-                                <button type="submit" class="btn text-dark update" >Save</button>
+                            <div class="btn-container">
+                                <button type="submit" class="btn text-dark update form-btn" >Save</button>
                             </div>
-                            
+                        </div>
                         </div>
         
                     </form>

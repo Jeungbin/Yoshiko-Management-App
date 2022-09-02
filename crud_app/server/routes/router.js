@@ -8,8 +8,10 @@ const controller = require("../controller/controller");
  *  @description Root Route
  *  @method GET /
  */
-route.get("/", services.homeRoutes);
+route.get("/", services.login);
+route.get("/home", services.homeRoutes);
 route.get("/dashBoard", services.dashBoard);
+//route.get("/getUser", services.getUser);
 
 /**
  *  @description add users

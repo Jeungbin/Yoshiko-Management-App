@@ -1,25 +1,26 @@
             <!--form handling-->
 
             <form action="/api/users" method="POST" id="add_user">
-                <div>
-                    <div>
-                        <label for="name">User Name</label>
+                <div class="createUserForm">
+                    <div class="createUserFormDiv">
+                        <label style="font-weight: 600; font-size: 15px;" for="name">User Name</label>
                         <input type="hidden" name="id" value="">
                         <input type="text" name="name" value="">
 
                     </div>
 
-                    <div>
-                        <label for="PhoneNum">Phone Num</label>
+                    <div class="createUserFormDiv">
+                        <label style="font-weight: 600; font-size: 15px;" for="PhoneNum">Phone Num</label>
                         <input type="number" name="phoneNum" id="PhoneNum" value="">
                     </div>
 
-                    <label for="startDate">Start date:</label>
+                    <div class="createUserFormDiv">
+                    <label style="font-weight: 600; font-size: 15px;" for="startDate">Start date:</label>
                     <input type="date" id="startDate" name="startDate" value="">
+                    </div>
 
-
-                    <div>
-                        <label for="classDate">Class Date</label>
+                    <div class="createUserFormDiv">
+                        <label style="font-weight: 600; font-size: 15px;" for="classDate">Class Date</label>
                         <div class="class-date-radio">
                         <div class="radio inline">
                             <input class="class-date-input" type="checkbox" id="Mon" name="classDate" value="Mon">
@@ -52,8 +53,8 @@
                     </div>
                     </div>
 
-                    <div class="class-date-radio">
-                        <label for="classTimeZone">Class Time Zone</label>
+                    <div class="createUserFormDiv class-date-radio" >
+                        <label style="font-weight: 600; font-size: 15px;" for="classTimeZone">Class Time Zone</label>
                         <div class="radio inline">
                             <input type="radio" id="Am" name="classTimeZone" value="Am">
                             <label for="Am" class="radio-label">Am</label> 
@@ -64,16 +65,16 @@
                         </div>
                     </div>
 
-                    <div>
-                        <label for="classTime">Class Time</label>
+                    <div class="createUserFormDiv">
+                        <label style="font-weight: 600; font-size: 15px;" for="classTime">Class Time</label>
                         <input type="number" id="classTime" name="classTime" value=""> <span>:</span> <input id="classTime" type="number" name="classTime" value="">
                         <span>To</span>
                         <input type="number" id="classTime" name="classTime" value=""> <span>:</span> <input id="classTime" type="number" name="classTime" value="">
 
                     </div>
                     
-                    <div class="class-date-radio">
-                        <label for="teacher">Teacher</label>
+                    <div class="createUserFormDiv class-date-radio" >
+                        <label style="font-weight: 600; font-size: 15px;" for="teacher">Teacher</label>
                         <div class="radio inline">
                             <input type="radio" id="Kim" name="teacher" value="Kim">
                             <label for="Kim" class="radio-label">Kim</label> 
@@ -87,8 +88,8 @@
                             <label for="Anes" class="radio-label">Anes</label> 
                         </div>
                     </div>
-                    <div>
-                        <button type="submit" class="btn text-dark update" >Save</button>
+                    <div class="btn-container">
+                        <button type="submit" class="btn text-dark form-btn" >Save</button>
                     </div>
                     
                 </div>
